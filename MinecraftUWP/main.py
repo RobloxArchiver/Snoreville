@@ -8,7 +8,7 @@ import keyboard
 from os import system
 from pymem import exception, Pymem
 
-system("title MCBE Module Dumper")
+system("title Snoreville: Python Edition")
 
 try:
     minecraft_process = Pymem("Minecraft.Windows.exe")

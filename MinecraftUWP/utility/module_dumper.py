@@ -7,23 +7,17 @@
 from os import system
 from pymem import exception, Pymem
 
-system("title MCBE Module Dumper")
+class dumper
+    def __init__():
+        system("cls") # Clear console
+        system("title Dumping Modules...")
+        minecraft_process = Pymem("Minecraft.Windows.exe")
 
-try:
-    minecraft_process = Pymem("Minecraft.Windows.exe")
-except exception.ProcessNotFound:
-    print("Please open Minecraft first")
-    input("Press 'ENTER' to exit!")
+        modules = list(minecraft_process.list_modules())
 
-def main():
-    print("Minecraft Process Grabbed...\nDumping...\n\n")
-
-    modules = list(minecraft_process.list_modules())
-
-    for module in modules:
-        print(f"{module.name}: {module.filename}")
-
-    input("\nDump Finished! Press 'ENTER' to exit!")
-
-if __name__ == "__main__":
-    main()
+        for module in modules:
+            print(f"{module.name}: {module.filename}")
+        
+        system("title Dump Finished")
+    
+        input("Press 'ENTER' to exit!")

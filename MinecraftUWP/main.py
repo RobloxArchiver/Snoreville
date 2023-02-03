@@ -5,8 +5,9 @@
 #-------------------------------------------------------------------------------
 
 import keyboard
+from Utility.Signatures import *
 from os import system
-from pymem import exception, Pymem
+from pymem import exception, Pymem, pattern
 
 system("title Snoreville: Python Edition")
 

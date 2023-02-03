@@ -9,16 +9,8 @@ from Utility.Signatures import *
 from os import system
 from pymem import exception, Pymem, pattern
 
-system("title Snoreville: Python Edition")
-
 try:
     minecraft_process = Pymem("Minecraft.Windows.exe")
 except exception.ProcessNotFound:
     print("Please open Minecraft first")
-    input("Press 'ENTER' to exit!")
-
-def main():
-    pass
-
-if __name__ == "__main__":
-    main()
+    input("Press 'ENTER' to exit")

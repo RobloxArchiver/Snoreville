@@ -7,17 +7,15 @@
 from os import system
 from pymem import exception, Pymem
 
-class dumper
-    def __init__():
-        system("cls") # Clear console
-        system("title Dumping Modules...")
-        minecraft_process = Pymem("Minecraft.Windows.exe")
+def __init__():
+    system("cls") # Clear console
+    system("title Dumping Modules...")
+    minecraft_process = Pymem("Minecraft.Windows.exe")
 
-        modules = list(minecraft_process.list_modules())
+    modules = list(minecraft_process.list_modules())
 
-        for module in modules:
-            print(f"{module.name}: {module.filename}")
+    for module in modules:
+        print(f"{module.name}: {module.filename}")
         
-        system("title Dump Finished")
-    
-        input("Press 'ENTER' to exit!")
+    system("title Dump Finished")
+    input("Press 'ENTER' to exit!")

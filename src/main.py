@@ -1,16 +1,8 @@
-#-------------------------------------------------------------------------------
-# Credits:
-#
-#     Snaacky @ GitHub (https://github.com/Snaacky) // Used a bit of code from mw2tweaks
-#-------------------------------------------------------------------------------
+from pymem import Pymem, pattern, process
 
-import keyboard
-from Utility.Signatures import *
-from os import system
-from pymem import exception, Pymem, pattern
+minecraft_process = Pymem("Minecraft.Windows.exe")
+minecraft_module = process.module_from_name(minecraft_process.process_handle, "Minecraft.Windows.exe")
 
-try:
-    minecraft_process = Pymem("Minecraft.Windows.exe")
-except exception.ProcessNotFound:
-    print("Please open Minecraft first")
-    input("Press 'ENTER' to exit")
+IsBanned = pattern.pattern_scan_module(minecraft_process.process_handle, minecraft_module, rb"\x48\x8D\x15....\x48\x8B\xCF\xE8....\x48\x8B\xC8\x48\x8D\x55\xB8\xE8....\x81\x65.....")
+
+print(minecraft_process.read_string(minecraft_process.process_handle + IsBanned))
